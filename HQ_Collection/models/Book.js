@@ -12,7 +12,7 @@ class Book {                                                // CRIANDO CLASSE BO
     };
 
     save() {                                                            // MÉTODO PARA OPERAR COM O BANCO DE DADOS
-        const book = conn.db().collection('bookstore').insertOne({      // INFORMA BANCO E COLLECTION PARA INSERÇÃO
+        const book = conn.db().collection('hq').insertOne({      // INFORMA BANCO E COLLECTION PARA INSERÇÃO
             name: this.name,                                            // SE NÃO EXISTIR, SERÁ CRIADO
             author: this.author,
             image: this.image,
@@ -24,22 +24,22 @@ class Book {                                                // CRIANDO CLASSE BO
     };
 
     static getBooks() {
-        const books = conn.db().collection('bookstore').find().toArray();      // ACESSA O BANCO E CONVERTE O DADO PARA ARRAY
+        const books = conn.db().collection('hq').find().toArray();      // ACESSA O BANCO E CONVERTE O DADO PARA ARRAY
         return books;
     };
 
     static async getBookById(id) {
-        const book = await conn.db().collection('bookstore').findOne({ _id: new mongo.ObjectId(id) });
+        const book = await conn.db().collection('hq').findOne({ _id: new mongo.ObjectId(id) });
         return book;
     };
 
     static async removeBookById(id) {
-        await conn.db().collection('bookstore').deleteOne({ _id: new mongo.ObjectId(id) });
+        await conn.db().collection('hq').deleteOne({ _id: new mongo.ObjectId(id) });
         return;
     }
 
     updateBook(id) {
-        conn.db().collection('bookstore').updateOne({ _id: new mongo.ObjectId(id) }, {$set: this});     // OPERADOR DE FILTRAGEM SET
+        conn.db().collection('hq').updateOne({ _id: new mongo.ObjectId(id) }, {$set: this});     // OPERADOR DE FILTRAGEM SET
         return;
     };
 };

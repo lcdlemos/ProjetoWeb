@@ -10,7 +10,7 @@ class User {                                                // CRIANDO CLASSE BO
     };
 
     save() {                                                            // MÉTODO PARA OPERAR COM O BANCO DE DADOS
-        const user = conn.db().collection('userstore').insertOne({      // INFORMA BANCO E COLLECTION PARA INSERÇÃO
+        const user = conn.db().collection('user').insertOne({      // INFORMA BANCO E COLLECTION PARA INSERÇÃO
             name: this.name,                                            // SE NÃO EXISTIR, SERÁ CRIADO
             cpf: this.cpf,
             address: this.address,
@@ -19,22 +19,22 @@ class User {                                                // CRIANDO CLASSE BO
     };
 
     static getUsers() {
-        const users = conn.db().collection('userstore').find().toArray();      // ACESSA O BANCO E CONVERTE O DADO PARA ARRAY
+        const users = conn.db().collection('user').find().toArray();      // ACESSA O BANCO E CONVERTE O DADO PARA ARRAY
         return users;
     };
 
     static async getUserById(id) {
-        const user = await conn.db().collection('userstore').findOne({ _id: new mongo.ObjectId(id) });
+        const user = await conn.db().collection('user').findOne({ _id: new mongo.ObjectId(id) });
         return user;
     };
 
     static async removeUserById(id) {
-        await conn.db().collection('userstore').deleteOne({ _id: new mongo.ObjectId(id) });
+        await conn.db().collection('user').deleteOne({ _id: new mongo.ObjectId(id) });
         return;
     }
 
     updateUser(id) {
-        conn.db().collection('userstore').updateOne({ _id: new mongo.ObjectId(id) }, {$set: this});     // OPERADOR DE FILTRAGEM SET
+        conn.db().collection('user').updateOne({ _id: new mongo.ObjectId(id) }, {$set: this});     // OPERADOR DE FILTRAGEM SET
         return;
     };
 };

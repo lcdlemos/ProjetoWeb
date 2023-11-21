@@ -1,6 +1,6 @@
 const { MongoClient } = require('mongodb');         // MONGOCLIENT É UM OBJETO DENTRO DO PACOTE MONGODB PARA CONECTAR AO BANCO
 
-const uri = "mongodb://localhost:27017/bookstore"   // PROTOCOLO DO MONGODB + IP DO SERVIDOR PARA CRIAR AO CONECTAR
+const uri = "mongodb://localhost:27017/hqcollection"   // PROTOCOLO DO MONGODB + IP DO SERVIDOR PARA CRIAR AO CONECTAR
 
 const client = new MongoClient(uri);                // CLIENT PASSANDO URI PARA CONEXÃO
 
