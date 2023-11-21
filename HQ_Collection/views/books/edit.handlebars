@@ -1,0 +1,26 @@
+<a href="/books">Voltar</a>
+<h1>Editar Livro</h1>
+<form action="/books/edit" method="POST">
+    <input type="hidden" name="id" value="{{book._id}}">
+    <div class="form-control">
+        <label for="name">Nome:</label>
+        <input type="text" name="name" placeholder="Digite o Nome do Livro" value="{{book.name}}">
+    </div>
+    <div class="form-control">
+        <label for="author">Nome:</label>
+        <input type="text" name="author" placeholder="Digite o Autor do Livro" value="{{book.author}}">
+    </div>
+    <div class="form-control">
+        <label for="image">Imagem:</label>
+        <input type="text" name="image" placeholder="Insira a URL da Imagem" value="{{book.image}}">
+    </div>
+    <div class="form-control">
+        <label for="price">Preço:</label>
+        <input type="text" name="price" placeholder="Digite o Preço do Livro" value="{{book.price}}">
+    </div>
+    <div class="form-control">
+        <label for="description">Descrição:</label>
+        <textarea name="description" placeholder="Informe a Descrição do Livro">{{book.description}}</textarea>
+    </div>
+    <input type="submit" value="Editar" class="btn">
+</form>

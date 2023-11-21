@@ -1,0 +1,10 @@
+<div class="user-page">
+    <a href="/users">Voltar</a>
+    <h1>Usuário</h1>
+    <p>Nome: {{user.name}}</p>
+    <p>CPF: {{user.cpf}}</p>
+    <p>Endereço: {{user.address}}</p>
+    <form action="/users/remove/{{user._id}}" method="POST">
+        <input type="submit" value="Excluir" class="btn">
+    </form>
+</div>
