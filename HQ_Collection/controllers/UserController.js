@@ -12,10 +12,10 @@ module.exports = class UserController {
 
     static addUserPost(req, res) {
         const name = req.body.name;                         // PEGANDO DADOS DO BODY PARA ESCREVER NO BANCO
-        const cpf = req.body.cpf;
-        const address = req.body.address;                       // PRÂMETROS PELO POST
+        const login = req.body.login;
+        const password = req.body.password;                       // PRÂMETROS PELO POST
         
-        const user = new User(name, cpf, address);    // INSTÂNCIA DE USER COM OS DADOS NA ORDEM DO CONSTRUTOR
+        const user = new User(name, login, password);    // INSTÂNCIA DE USER COM OS DADOS NA ORDEM DO CONSTRUTOR
 
         user.save();                                        // SALVAR OS DADOS DO USER NO BANCO PELO MÉTODO SAVE
 
@@ -43,10 +43,10 @@ module.exports = class UserController {
     static async editUserPost(req, res) {
         const id = req.body.id;
         const name = req.body.name;
-        const cpf = req.body.cpf;
-        const address = req.body.address;
+        const login = req.body.login;
+        const password = req.body.password;
         
-        const user = new User(name, cpf, address);
+        const user = new User(name, login, password);
 
         await user.updateUser(id);
 

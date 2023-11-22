@@ -1,4 +1,5 @@
 <a href="/users">Voltar</a>
+<br>
 <h1>Editar Usuário</h1>
 <form action="/users/edit" method="POST">
     <input type="hidden" name="id" value="{{user._id}}">
@@ -7,12 +8,12 @@
         <input type="text" name="name" placeholder="Digite o Nome do Usuário" value="{{user.name}}">
     </div>
     <div class="form-control">
-        <label for="cpf">Nome:</label>
-        <input type="text" name="cpf" placeholder="Digite o CPF do Usuário" value="{{user.cpf}}">
+        <label for="login">Login:</label>
+        <input type="text" name="login" placeholder="Digite o Login do Usuário" value="{{user.login}}">
     </div>
     <div class="form-control">
-        <label for="address">Preço:</label>
-        <input type="text" name="address" placeholder="Digite o Endereço do Usuário" value="{{user.address}}">
+        <label for="password">Senha:</label>
+        <input type="password" name="password" placeholder="Digite a Senha do Usuário" value="{{user.password}}">
     </div>
     <input type="submit" value="Editar" class="btn">
 </form>

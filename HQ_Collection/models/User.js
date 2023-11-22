@@ -3,17 +3,17 @@ const conn = require('../db/conn');                         // ADICIONA MÓDULO 
 const mongo = require('mongodb');                           // IMPORTAR PARA USAR O OBJECT ID DO MONGO
 
 class User {                                                // CRIANDO CLASSE BOOK
-    constructor(name, cpf, address) {                 // CONSTRUTOR COM PROPRIEDADES PREENCHIDAS
+    constructor(name, login, password) {                 // CONSTRUTOR COM PROPRIEDADES PREENCHIDAS
         this.name = name;
-        this.cpf = cpf;
-        this.address = address;
+        this.login = login;
+        this.password = password;
     };
 
     save() {                                                            // MÉTODO PARA OPERAR COM O BANCO DE DADOS
         const user = conn.db().collection('user').insertOne({      // INFORMA BANCO E COLLECTION PARA INSERÇÃO
             name: this.name,                                            // SE NÃO EXISTIR, SERÁ CRIADO
-            cpf: this.cpf,
-            address: this.address,
+            login: this.login,
+            password: this.password,
         });
         return user;
     };
